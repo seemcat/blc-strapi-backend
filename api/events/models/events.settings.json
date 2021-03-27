@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "Events",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Purpose": {
+      "type": "text"
+    },
+    "Invitee": {
+      "type": "richtext"
+    },
+    "Primer": {
+      "type": "richtext"
+    },
+    "Rules": {
+      "type": "richtext"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Time": {
+      "type": "time"
+    },
+    "Venue": {
+      "type": "string"
+    }
+  }
+}

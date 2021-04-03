@@ -6,7 +6,7 @@ module.exports = async (ctx, next) => {
   let role;
 
   if (ctx.state.user) {
-    // request is already authenticated in a different way
+    // Request is already authenticated in a different way
     return next();
   }
 
@@ -18,16 +18,19 @@ module.exports = async (ctx, next) => {
         throw new Error('Invalid token: Token did not contain required fields');
       }
 
-      // fetch authenticated user
+      // Fetch authenticated user
       ctx.state.user = await strapi.plugins[
         'users-permissions'
       ].services.user.fetchAuthenticatedUser(id);
+
     } catch (err) {
+      /* With Magic changes */
         try {
             await strapi.plugins['magic'].services['magic'].loginWithMagic(ctx);
         } catch (err) {
             return handleErrors(ctx, err, 'unauthorized');
         }
+      /* End Magic changes */
     }
 
     if (!ctx.state.user) {

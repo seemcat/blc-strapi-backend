@@ -1,3 +1,3 @@
-# Strapi application
+The Strapi backend for the Blockchain Ladies Club events page.
 
-A quick description of your strapi application
+
